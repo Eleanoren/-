@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>西南石油大学电子邮件系统</title>
+    <style type="text/css">
+        body {
+            background: url(https://area.sinaapp.com/bingImg/) fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: repeat;
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .top {
+            width: 1600px, 100%;
+            height: 60px, 100%;
+        }
+        
+        .all {
+            border: 1px solid lightblue;
+            width: 335px;
+            height: 387px;
+            position: absolute;
+            top: 136px;
+            right: 341px;
+        }
+        
+        .all .first .login,
+        .all .first .pas {
+            width: 335px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            display: block;
+            float: left;
+            background-color: rgb(255, 136, 0);
+            font-family: "微软雅黑";
+            color: white;
+        }
+        
+        .all .second .number {
+            width: 284px;
+            height: 35px;
+            margin-top: 33px;
+            margin-left: 17px;
+            background-color:rgb(243,243,243);
+        }
+        
+        .all .second .password {
+            width: 284px;
+            height: 35px;
+            margin-top: 33px;
+            margin-left: 17px;
+            background-color: rgb(243,243,243);
+        }
+        
+        #ok {
+            width: 284px;
+            height: 40px;
+            margin-top: 17px;
+            margin-left: 17px;
+            border: 0;
+            background-color: cornflowerblue;
+            font-size: larger;
+            color: white;
+            font-family: "微软雅黑";
+        }
+
+        #ok:hover{
+            background-color: steelblue ;
+        }
+        
+        .all .first {
+            width: 335px;
+            height: 52px;
+        }
+        
+        .all .second {
+            width: 335px;
+            height: 290px;
+            background-color:white;
+        }
+        
+        .all .third {
+            width: 222px;
+            height: 45px;
+            line-height: 45px;
+            padding-left: 110px;
+            background-color: white;
+        }
+        
+        .all .second .bnext {
+            width: 20px;
+            height: 20px;
+            margin-top: 10px;
+            margin-left: 17px;
+        }
+        
+        .all .second .tnext {
+            display: block;
+            width: 100px;
+            height: 15px;
+            margin-left: 45px;
+            margin-top: -22px;
+            font-size: small;
+        }
+
+        .all .third span {
+            font-size: smaller;
+            color:slategrey;
+            font-family: "微软雅黑";
+        }
+
+        .all.second span{
+            font-size: small;
+            color: red;
+            font-family: "微软雅黑";
+        }
+        form button:hover
+        {
+			 	background:#CCC; 
+	    }
+
+    </style>
+</head>
+
+<body>
+    <img src="logo.png" class="top" />
+    <div class="all">
+        <div class="first">
+            <span class="login">账号登录</span>
+        </div>
+        <div class="second">
+            <form action="" method="GET">
+                <input type="text" class="number" placeholder="用户名" name="number"/>
+                <!-- <br/> -->
+                <input type="password" class="number" placeholder="密码" name="password" /><br/><br/>
+                <span>    学生选择@stu.swpu.edu.cn </span>
+                <!-- <br/> -->
+            
+                <button type="submit" id="ok" onclick="cmd()"> 登 录 </button>
+            </form>
+            
+        </div>
+        <div class="third">
+            <span>忘记密码</span>
+
+        </div>
+    </div>
+    <script>
+        function cmd()
+        {
+            var number=document.getElementsByName("number").values;
+            var password=document.getElementsByName("password").values;
+            if(number==""||password=="")
+            {
+                alert("用户名和密码不能为空");
+                return false;
+            }
+            else if(number=="tom"&&password=="123")
+            {
+                window.open(mail.swpu.edu.cn);
+                return true;
+            }
+            else
+            {
+                alert("账号密码错误");
+                return false;
+            }
+        }
+    </script>
+    
+</body>
+</html>
