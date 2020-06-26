@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.NewsMapper" >
+    <resultMap id="BaseResultMap" type="entity.News" >
+        <id column="news_id" property="newsId" jdbcType="VARCHAR" />
+        <result column="news_title" property="newsTitle" jdbcType="VARCHAR" />
+        <result column="news_author" property="newsauthor" jdbcType="VARCHAR" />
+        <result column="news_content" property="newscontent" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="newslist.newslist" >
+        id,title,author,content
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="newslist.newslist" />
+        from newslist.newslist
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+        delete from newslist.newslist
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="entity.News" >
+        insert into newslist.newslist (id, title, author, time, source, content)
+        values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
+                #{content,jdbcType=varchar})
+    </insert>
+    <insert id="insertSelective" parameterType="entity.News" >
+        insert into newslist.newslist
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id!= null" >
+                id,
+            </if>
+            <if test="title != null" >
+                title,
+            </if>
+            <if test="author != null" >
+                author,
+            </if>
+            <if test="content != null" >
+                content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null" >
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null" >
+                #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null" >
+                #{content,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="entity.News" >
+        update newslist.newslist
+        <set >
+            <if test="title != null" >
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null" >
+                author = #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null" >
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="entity.News" >
+        update newslist.newslist
+        set title = #{title,jdbcType=VARCHAR},
+            author = #{author,jdbcType=DATE},
+            content = #{content,jdbcType=DOUBLE}
+        where id = #{id,jdbcType=CHAR}
+    </update>
+    <select id="getAllNews" resultMap="BaseResultMap">
+        select id,title,author,content from newslist.newslist
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>jar://$MODULE_DIR$/lib/aopalliance-1.0.jar!/</file>
+          <file>jar://$MODULE_DIR$/lib/commons-logging-1.2.jar!/</file>
+          <file>jar://$MODULE_DIR$/lib/spring-aop-5.2.3.RELEASE.jar!/</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-dao.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+</module>
